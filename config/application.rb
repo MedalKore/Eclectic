@@ -58,5 +58,11 @@ module Eclectic
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # To Make .sass the default generator extension
+    config.generators.stylesheet_engine = :sass
+
+    # Adds font folder to asset path
+    config.assets.paths << "#{Rails.root}/app/assets/fonts"
   end
 end

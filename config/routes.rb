@@ -1,11 +1,12 @@
 Eclectic::Application.routes.draw do
-  # get "account/home"
-  # get "account/edit"
-  resources :account
-  resources :createaccount
-  post '/createaccount/create'
+  
   # match "/(:action)" => "home"
-  get "home/contact"
+  match 'account/login' => 'account#login', :as => 'login'
+  match '/creataccount' => 'creataccount#create', :as => 'createaccount'
+  match '/contact' => 'home#contact'
+  match '/about' => 'home#about'
+  match '/' => 'home#index', :as => 'home'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,6 +1,11 @@
 Eclectic::Application.routes.draw do
   
   # match "/(:action)" => "home"
+  match 'product/custom' => 'product#custom', :as => 'custom'
+  match 'product/accessories(/:subc)' => 'product#accessories', :as => 'accessories'
+  match 'product/survivorbracelets' => 'product#survivor', :as => 'survivor'
+  match 'product/(:category(/:premade(/:gender)))' => 'product#category', :as => 'category'
+  match 'product/(:id)' => 'product#show', :as => 'new_item'
   match 'account/login' => 'account#login', :as => 'login'
   match '/creataccount' => 'creataccount#create', :as => 'createaccount'
   match '/contact' => 'home#contact'

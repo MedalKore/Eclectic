@@ -1,0 +1,14 @@
+#pick_your_part
+	- for hemp in @hemp
+		- unless hemp.type_of_hemp == 'hemp cord'
+			%ul
+				%li
+					= image_tag("photos/hemp/#{hemp.filename}.jpg")
+				%li
+					= hemp.type_of_hemp
+				%li
+					= form_tag("/custom/add_knot/#{hemp.id}") do
+						= label_tag 'Select a length:'
+						= collection_select(:custom_made, :length_id, @length, :id, :length_and_size)
+						= submit_tag 'Add'
+

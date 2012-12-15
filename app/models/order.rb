@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
-  attr_accessible :product_ID, :user_ID
+  attr_accessible :user_id, :cart_id
   belongs_to :user
-  has_many :products
+  has_many :carts
   
 end

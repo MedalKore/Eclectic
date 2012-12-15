@@ -1,0 +1,10 @@
+- unless @product.nil?
+	#product
+		= image_tag("photos/complee/#{@product.filename}.JPG")
+	#productinfo
+		%p= @product.price
+		%p= @product.category
+		- unless @product.subcategory.nil?
+			%p= @product.subcategory
+		%p= link_to '+', add_path(:id => @product.id), :remote => true, :id => "add_#{@product.id}"
+

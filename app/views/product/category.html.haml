@@ -1,0 +1,7 @@
+- unless @products.nil?
+	#qitem
+		%ul
+		- for product in @products do
+			%li.item
+				%p= link_to image_tag("photos/complee/#{product.filename}_small.jpg"), item_path(:id => product.id), :class => 'newpic'
+				%p= "$#{product.price}"

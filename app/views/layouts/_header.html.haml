@@ -1,0 +1,80 @@
+%header
+	%nav#main
+		%ul.borderr
+			%li
+				= link_to "Log In", login_path, {:class => "last", :title => "Log In"}
+			%li
+				= link_to "Create Account", createaccount_path, {:id => 'creataccount'}
+			%li
+				= link_to "Contact", contact_path, {:id => 'contact'}
+			%li
+				= link_to 'About', about_path, {:id => 'about'}
+			%li
+				= link_to 'Home', home_path, {:id => 'home'}
+	%p#flash
+	#shoppingcart
+		= link_to cart_path, :id => "cart", :title => "My Cart" do
+			= image_tag('site/bag.png', :id => 'bag')
+			= "My Cart ("
+			-if @cart.cart_items.empty?
+				%span>= "is empty)"
+			-else
+				%span>= "$#{sprintf("%0.2f", @cart.total)}"
+				)
+	%nav#cat
+		%ul#jMenu
+			%li#neck
+				= link_to 'Necklace', nil, :class => "fNiv"
+				%ul
+					%li
+						= link_to 'Premade'
+						%ul
+							%li
+								= link_to 'All', find_all_path(:category => 'necklace')
+							%li
+								= link_to 'Men', category_path(:category => 'necklace', :premade => 'premade',:gender => 'men')
+							%li
+								= link_to 'Women', category_path(:category => 'necklace', :premade => 'premade',:gender => 'women')
+							%li
+								= link_to 'Friendship', category_path(:category => 'friendship', :premade => 'premade')
+					%li
+						= link_to 'Custom', picked_path(:pick => 'necklace')
+			%li
+				= link_to 'Bracelets', nil, :class => "fNiv"
+				%ul
+					%li
+						= link_to 'Premade', category_path(:category => 'bracelets', :premade => 'premade')
+					%li
+						= link_to 'Custom', picked_path(:pick => 'bracelets')
+			%li
+				= link_to 'Anklets', nil, :class => "fNiv"
+				%ul
+					%li
+						= link_to 'Premade', category_path(:category => 'anklets', :premade => 'premade')
+					%li
+						= link_to 'Custom', picked_path(:pick => 'anklets')
+			%li
+				= link_to 'Survivor Bracelets', survivor_path
+				%ul
+					%li
+						= link_to 'Premade', accessories_path(:subc => 'keychain')
+					%li
+						= link_to 'Custom', picked_path(:pick => 'keychain')
+			%li
+				= link_to 'Earrings', nil, {:class => "fNiv"}
+				%ul
+					%li
+						= link_to 'Premade', accessories_path(:subc => 'earrings')
+					%li
+						= link_to 'Custom', picked_path(:pick => 'earrings')
+			%li
+				= link_to 'Accessories', nil, {:class => "fNiv"}
+				%ul
+					%li
+						= link_to 'Keychains', accessories_path(:subc => 'keychain')
+						%ul
+							%li
+								= link_to 'Premade', accessories_path(:subc => 'keychain')
+							%li
+								= link_to 'Custom', picked_path(:pick => 'keychain')
+					

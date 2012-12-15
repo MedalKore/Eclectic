@@ -1,0 +1,13 @@
+#all_product
+	- for product in @all_products
+		%ul
+			%li
+				%span
+					= link_to image_tag("photos/complete/#{product.filename}_small.jpg"), item_path(:id => product.id)
+				
+				%span
+					Category:
+					= product.category
+				%span
+					Price:
+					= product.price

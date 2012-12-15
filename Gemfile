@@ -8,8 +8,8 @@ gem 'sprockets'
 gem 'pg'
 gem 'autotest'
 gem 'haml'
+gem 'coffee-filter'
 gem 'thin'
-
 
 group :developement do
 	gem 'rspec-rails'
@@ -33,8 +33,8 @@ end
 
 
 # To use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.0.0'
-gem 'omniauth-identity'
+# gem 'bcrypt-ruby', '~> 3.0.0'
+# gem 'omniauth-identity'
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
@@ -45,4 +45,4 @@ gem 'omniauth-identity'
 # gem 'capistrano'
 
 # To use debugger
-gem 'debugger'
+# gem 'debugger'

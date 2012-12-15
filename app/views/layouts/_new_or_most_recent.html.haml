@@ -1,0 +1,7 @@
+#nitem
+	%ul
+	- for item in @new_products do
+		%li.newitem
+			%p= link_to image_tag("photos/complete/#{item.filename}_small.jpg"), item_path(:id => item.id), :class => 'newpic'
+			%p= "$#{item.price} -------"
+			

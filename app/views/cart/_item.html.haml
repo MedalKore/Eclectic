@@ -1,0 +1,12 @@
+%ul{class: "item_#{@item.product_id}"}
+	%li.{class: "image_#{@item.product_id}"}
+		= link_to image_tag("photos/complee/#{@item.cart_item_filename(@item.product_id)}_small.jpg"), item_path(:id => @item.product_id)
+	%li{class: "amount_#{@item.product_id}"}
+		= @item.amount
+	%li{class: "price_#{@item.product_id}"}
+		= @item.price
+	%li{class: "total_#{@item.product_id}"}
+		= @item.total_each
+%p#cart_total
+	%strong
+		= "Total: $#{sprintf("%0.2f", @cart.total)}"

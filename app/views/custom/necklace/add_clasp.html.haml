@@ -1,0 +1,18 @@
+#pick_your_part
+	-unless @clasps.nil?
+		#knots
+			-for clasp in @clasps
+				%ul
+					%li
+						= image_tag("photos/clasps/#{clasp.filename}.jpg")
+					%li>
+						Style:
+						= clasp.style
+					%li>
+						Price:
+						-if clasp.price == 0
+							FREE
+						-else
+							= sprintf("%0.2f", clasp.price)
+					%button
+						= link_to 'Add this Clasp', "/custom/review_custom/#{clasp.id}"

@@ -1,0 +1,23 @@
+#cart_items
+	%ul#headers.odd
+		%li Items
+		%li Amount
+		%li Unit Price
+		%li Full Price
+	- for item in @cart.cart_items do	
+		%ul{class: "item_#{item.product_id} #{cycle(:odd, :even)}", :id => 'items'}
+			%li{class: "image_#{item.product_id}"}<
+				= link_to image_tag("photos/complee/#{item.cart_item_filename(item.product_id)}_small.jpg"), item_path(:id => item.product_id)
+				= remove_from_cart_link(item.product_id)
+			%li{class: "amount_#{item.product_id}"}<
+				= item.amount
+			%li{class: "price_#{item.product_id}"}<
+				= "$#{item.price}"
+			%li{class: "full_price_#{item.product_id}"}<
+				= "$#{item.full_price}"
+#back_check
+	= link_to 'Back to Shopping', @referer
+	= link_to 'Checkout'
+%p#cart_total
+	%strong
+		= "Total: $#{sprintf("%0.2f", @cart.total)}"

@@ -1,0 +1,4 @@
+$(function(){
+	$('#shoppingcart span').text("<%=raw sprintf('%0.2f', @cart.total) %>");
+	$('#flash').text("<%= flash[:item_add] %>");
+});

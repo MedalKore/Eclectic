@@ -1,0 +1,22 @@
+#pick_your_part
+	-unless @spacer_beads.nil?
+		#knots
+			#info
+				Spacer beads must be purchased in even amounts.
+			-for bead in @spacer_beads
+				%ul
+					%li
+						= image_tag("photos/bead/#{bead.filename}.jpg")
+					%li>
+						Style:
+						= bead.style
+					%li>
+						Price:
+						= sprintf("%0.2f", bead.price)
+					%li>
+						= form_tag("/custom/add_spacer_beads/#{bead.id}") do
+							= label_tag 'Amount:'
+							= number_field_tag 'amount', nil, :min => 0, :max => 16, :step => 2
+							= submit_tag 'Add These Beads'
+			%button
+				= link_to 'None, Take me to the next step.', '/custom/add_pendant'

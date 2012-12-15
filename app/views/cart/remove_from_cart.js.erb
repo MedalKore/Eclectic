@@ -1,0 +1,7 @@
+$(function(){
+	$('#items li.amount_<%= @item.product_id %>').text("<%= @item.amount %>");
+	$('#items li.full_price_<%= @item.product_id %>').text("$<%= @item.full_price %>");
+	$('#shoppingcart span').text("<%=raw sprintf('%0.2f', @cart.total) %>");
+	$('#cart_total strong').text("Total: $<%=raw sprintf('%0.2f', @cart.total) %>");
+	$('#flash').text("<%= flash[:item_removed] %>");
+});

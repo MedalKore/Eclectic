@@ -14,5 +14,6 @@
 /log/*.log
 /tmp
 
+/assets/images
 
 /config/database.yml

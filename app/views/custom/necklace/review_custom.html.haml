@@ -1,4 +1,15 @@
 #custom_review
 	- list_custom_items
 	#custom_jewelry
-		Your custom #{@category}
+		%p Your custom #{@category}
+		%li.odd
+			= image_tag("photos/hemp/#{hemp.filename}.jpg")
+			%p= @hemp.type
+
+		%li.even
+			= image_tag("photos/hemp/#{hemp.filename}.jpg")
+			%p= @knot.
+			%p= @
+		%li.odd
+		%li.even
+		%li.odd

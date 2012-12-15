@@ -13,4 +13,8 @@ module CustomHelper
 		@clasp = Clasp.find(@custom.clasp_id)
 
 	end
+
+	def total
+		@knot.price * (@custom.main_bead_amount * @main_beads.price)
+	end
 end

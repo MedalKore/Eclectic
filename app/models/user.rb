@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
-   attr_accessible :title, :body
+  attr_accessible :username, :password_digest, :firstname, :lastname, :email
 	has_many :orders
-	has_many :favorites
 	validates :username, :presence => true
-	validates :password, :presence => true
+	validates :password_digest, :presence => true
 	validates :firstname
 	validates :lastname
 	validates :email, :presence => true
 
+	has_secure_password
 end

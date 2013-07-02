@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
 	before_filter :newest_items
 	before_filter :initialize_cart, :except => {:controller => :admin}
 	before_filter :last_item, :except => {:controller => :admin}
-	before_filter :initialize_custom_made, :only => {:controller => :custom, :action => :category_pick}, :except => {:controller => :admin}
 
 	def newest_items
 		@new_products ||= Product.order('created_at DESC').limit(3)
@@ -23,15 +22,6 @@ class ApplicationController < ActionController::Base
 	
 
 	private
-
-	def initialize_custom_made
-		if session[:custom]
-			@custom = CustomMade.find(session[:custom])
-		else
-			@custom = CustomMade.create
-			session[:custom] = @custom.id
-		end
-	end
 
 	def initialize_cart
 		if session[:cart_id]

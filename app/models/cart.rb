@@ -1,9 +1,7 @@
 class Cart < ActiveRecord::Base
   attr_accessible :complete
   has_many :cart_items
-  has_many :custom_items
   has_many :products, :through => :cart_items
-  has_many :custom_made, :through => :custom_items
   belongs_to :orders
 
   def add_product(product_id)

@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  type: 
-  price: 1
-
-two:
-  type: 
-  price: 1

@@ -34,7 +34,6 @@ class ProductController < ApplicationController
 
 	def category
 		# debugger
-		@premade = params[:premade] == 'premade' ? true : false
 		@category = params[:category].capitalize
 		@title = @category
 		@category = @category.singularize if @category == 'Bracelets' || 'Anklets' || "Survivorbracelets" || "Accessories"
@@ -43,14 +42,8 @@ class ProductController < ApplicationController
 		
 	end
 
-	def custom
-		@title = 'Custom'
-
-	end
-
 	def accessories
 		@title = 'Accessories'
-
 		@accessories = Product.where()
 
 	end
@@ -65,9 +58,9 @@ class ProductController < ApplicationController
 
 	def call_for_category
 		if @gender
-			@products = Product.where("category = :category AND gender = :gender AND premade = :premade", {:category => @category, :gender => @gender, :premade => @premade})
+			@products = Product.where("category = :category AND gender = :gender", {:category => @category, :gender => @gender})
 		else
-			@products = Product.where("category = :category AND premade = :premade",{:category => @category, :premade => @premade})
+			@products = Product.where("category = :category",{:category => @category})
 		end
 	end
 

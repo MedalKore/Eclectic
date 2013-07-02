@@ -27,54 +27,24 @@
 				= link_to 'Necklace', nil, :class => "fNiv"
 				%ul
 					%li
-						= link_to 'Premade'
-						%ul
-							%li
-								= link_to 'All', find_all_path(:category => 'necklace')
-							%li
-								= link_to 'Men', category_path(:category => 'necklace', :premade => 'premade',:gender => 'men')
-							%li
-								= link_to 'Women', category_path(:category => 'necklace', :premade => 'premade',:gender => 'women')
-							%li
-								= link_to 'Friendship', category_path(:category => 'friendship', :premade => 'premade')
+						= link_to 'All', find_all_path(:category => 'necklace')
 					%li
-						= link_to 'Custom', picked_path(:pick => 'necklace')
+						= link_to 'Men', category_path(:category => 'necklace',:gender => 'men')
+					%li
+						= link_to 'Women', category_path(:category => 'necklace', :gender => 'women')
+					%li
+						= link_to 'Friendship', category_path(:category => 'friendship')
 			%li
-				= link_to 'Bracelets', nil, :class => "fNiv"
-				%ul
-					%li
-						= link_to 'Premade', category_path(:category => 'bracelets', :premade => 'premade')
-					%li
-						= link_to 'Custom', picked_path(:pick => 'bracelets')
+				= link_to 'Bracelets', category_path(:category => 'bracelets'), :class => "fNiv"
 			%li
-				= link_to 'Anklets', nil, :class => "fNiv"
-				%ul
-					%li
-						= link_to 'Premade', category_path(:category => 'anklets', :premade => 'premade')
-					%li
-						= link_to 'Custom', picked_path(:pick => 'anklets')
+				= link_to 'Anklets', category_path(:category => 'anklets'), :class => "fNiv"					
 			%li
 				= link_to 'Survivor Bracelets', survivor_path
-				%ul
-					%li
-						= link_to 'Premade', accessories_path(:subc => 'keychain')
-					%li
-						= link_to 'Custom', picked_path(:pick => 'keychain')
 			%li
-				= link_to 'Earrings', nil, {:class => "fNiv"}
-				%ul
-					%li
-						= link_to 'Premade', accessories_path(:subc => 'earrings')
-					%li
-						= link_to 'Custom', picked_path(:pick => 'earrings')
+				= link_to 'Earrings', accessories_path(:subc => 'earrings'), {:class => "fNiv"}
 			%li
 				= link_to 'Accessories', nil, {:class => "fNiv"}
 				%ul
 					%li
 						= link_to 'Keychains', accessories_path(:subc => 'keychain')
-						%ul
-							%li
-								= link_to 'Premade', accessories_path(:subc => 'keychain')
-							%li
-								= link_to 'Custom', picked_path(:pick => 'keychain')
 					

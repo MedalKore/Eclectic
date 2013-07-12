@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
+	protect_from_forgery
 	before_filter :newest_items
 	before_filter :initialize_cart, :except => {:controller => :admin}
 	before_filter :last_item, :except => {:controller => :admin}
@@ -14,7 +14,6 @@ class ApplicationController < ActionController::Base
 
 	def find_in_cart(pid)
 		@item = @cart.cart_items.find_by_product_id(pid)
-		
 	end
 
 	
@@ -37,6 +36,7 @@ class ApplicationController < ActionController::Base
 	def clear_custom
 		
 	end
+	
 	def clear_cart
 		
 	end

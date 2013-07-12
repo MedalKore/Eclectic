@@ -1,4 +1,5 @@
 #all_product
+<<<<<<< HEAD
 	- for product in @all_products
 		%ul
 			%li
@@ -11,3 +12,10 @@
 				%span
 					Price:
 					= product.price
+=======
+	%ul
+		- for product in @all_products	
+			%li.row
+				= link_to image_tag("photos/complete/#{product.filename}_small.jpg", class: "image_thumb"), item_path(:id => product.id)
+
+>>>>>>> Began implementing permanent remember me

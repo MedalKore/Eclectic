@@ -6,8 +6,7 @@ class AccountController < ApplicationController
   end
 
   def login
-  	user = User.where(:email => params[:email].permit!
-  	user = user.authenticate(params[:password].permit!)
+  	user = User.authenticate(:email => params[:email].permit!, :password => params[:password].permit!)
   	cookies.permanent[:auth_token] = user.auth_token
   end
 

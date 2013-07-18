@@ -8,7 +8,6 @@ class Cart < ActiveRecord::Base
   	item = cart_items.find_all_by_product_id(product_id)
   	product = Product.find(product_id)
 
-    	
       if item.size < 1
     		ci = cart_items.create(:product_id => product_id,
     														:amount => 1,
@@ -23,14 +22,13 @@ class Cart < ActiveRecord::Base
 
   def remove(product_id)
   	ci = cart_items.find_by_product_id(product_id)
-  
     if !ci.nil?
   	 ci.amount > 1 ? ci.update_attribute(:amount, ci.amount - 1) : CartItem.destroy(ci.id)
     end
     if CartItem.find_by_product_id(product_id).nil?
       ci = nil
     end
-  	
+
     ci
   end
 

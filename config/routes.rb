@@ -1,5 +1,7 @@
 Eclectic::Application.routes.draw do
   
+  get "payment_notification/create"
+
   # match "/(:action)" => "home"
   match '/custom/:action(/:id)' => 'custom#add_it', :as => 'add_it'
   match '/custom/:category/addclasp' => 'custom#add_clasp', :as => 'add_clasp'

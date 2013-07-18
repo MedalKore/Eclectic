@@ -23,6 +23,8 @@ class ApplicationController < ActionController::Base
 	private
 
 	def initialize_cart
+		if @cart.completed
+			session[:cart_id] = nil
 		if session[:cart_id]
 			@cart = Cart.find(session[:cart_id])
 		else

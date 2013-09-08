@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 %header
 	%nav#main
 		%ul.borderr
@@ -47,4 +48,49 @@
 				%ul
 					%li
 						= link_to 'Keychains', accessories_path(:subc => 'keychain')
+=======
+%p#flash= flash[:notice] || flash[:error]
+- unless current_user
+	= ab_test "Sign Up Button", ["Sign Up", "Register"], conversion: "signed_up" do |verbage|
+		= link_to verbage, create_account_path, id: "sign_up"
+
+#shoppingcart
+	= link_to cart_path, :id => "cart", :title => "My Cart" do
+		= image_tag('site/bag.png', :id => 'bag')
+		-if @cart.cart_items.empty?
+			%span.items< Cart(
+		-else
+			%span.items<= "#{@cart.cart_items.count} Items("
+		-if @cart.cart_items.empty?
+			%span.total< is empty)
+		-else
+			%span.total<= "$#{sprintf("%0.2f", @cart.total)})"
+%header
+	%nav#cat
+		%ul#jMenu
+			%li#neck
+				= link_to 'All Products', products_path
+			%li
+				= link_to 'Necklaces', find_all_path(category: 'necklaces')
+				%ul
+					%li
+						= link_to 'Men', category_path(category: 'necklaces', sub_gender: 'men')
+					%li
+						= link_to 'Women', category_path(category: "necklaces", sub_gender: 'women')
+					%li
+						= link_to 'Friendship', friendship_path
+			%li
+				= link_to 'Bracelets', find_all_path(category: 'bracelets')
+			%li
+				= link_to 'Anklets', find_all_path(category: 'anklets')				
+			%li
+				= link_to 'Survivor Bracelets', survivor_path
+			%li
+				= link_to 'Accessories', find_all_path(category: 'accessories')
+				%ul
+					%li
+						= link_to 'Keychains', category_path(category: 'accessories', sub_gender: 'keychain')
+					%li
+						= link_to 'Earrings', category_path(category: 'accessories', sub_gender: 'earrings')
+>>>>>>> Reinitialized repo because removing a bunch of large old files is tedious.
 					

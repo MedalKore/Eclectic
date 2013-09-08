@@ -6,7 +6,9 @@ class CartController < ApplicationController
 
 	end
 
-
+	def empty_cart
+		redirect_to :index
+	end
 
 	def remove_from_cart
 		id = params[:id]
@@ -20,9 +22,4 @@ class CartController < ApplicationController
 		end
 	end
 
-	protected
-
-	def to_rails_hash
-		
-	end
 end

@@ -1,0 +1,38 @@
+=form_for @product, url: admin_create_product_path, html: {multipart: true} do |p|
+	= p.label :name, "Name:"
+	= p.text_field :name
+	%br
+	= p.label :description, 'Brief Description:'
+	= p.text_area :description
+	%br
+	= p.label :price, "Price:"
+	= p.text_field :price
+	%br
+	= p.label :category, "Category:"
+	= p.collection_select :category, Product.category_options, :to_sym, :capitalize
+	%p#add_category= 'Add Category'
+	%br
+	= text_field :add_a, :category, placeholder: 'Add a Category'
+	%p#add_it_category= 'Add It! You know you want to.'
+	%br
+	= p.label :quantity, "Quantity:"
+	= p.number_field :quantity
+	%br
+	= p.label :gender, "Gender:"
+	= p.collection_select :gender, Product.gender_options, :to_sym, :capitalize
+	%br
+	= p.label :subcategory, "Sub-Category:"
+	= p.collection_select :subcategory, Product.subcategory_options, :to_sym, :capitalize
+	%p#add_subcategory= 'Add Sub-Category'
+	%br
+	= text_field :add_a, :subcategory, placeholder: 'Add a Sub-Category'
+	%p#add_it_subcategory= 'Add It! You know you want to.'
+	%br
+	= p.label '', 'Current Image:'
+	= image_tag(@product.product_image.url :thumbnail)
+	%br
+	= p.label :product_image, 'Pick a new image:'
+	= p.file_field :product_image
+	%br
+	= p.submit 'Add Product'
+	= p.button 'Cancel'

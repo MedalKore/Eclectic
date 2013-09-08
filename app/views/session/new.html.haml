@@ -1,0 +1,20 @@
+%h2 Log In
+%table#log_in_form
+	= form_tag log_in_path do
+		%tr
+			%td
+				= label_tag 'log_in[email]', 'Email'
+			%td
+				= email_field 'log_in', 'email'
+		%br
+		%tr
+			%td
+				= label_tag 'log_in[password]', 'Password'
+			%td
+				= password_field 'log_in', 'password'
+		%tr
+			%td	
+				= submit_tag 'Log In'
+
+= ab_test "Sign Up Button", ["Sign Up", "Register"], conversion: "signed_up" do |verbage|
+	= link_to verbage, create_account_path, id: "log_in_sign_up"

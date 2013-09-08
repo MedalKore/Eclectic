@@ -1,11 +1,13 @@
 class User < ActiveRecord::Base
-#   attr_accessible :username, :password_digest, :firstname, :lastname, :email
-# 	has_many :orders
-# 	validates :username, :presence => true
-# 	validates :password_digest, :presence => true
-# 	validates :firstname
-# 	validates :lastname
-# 	validates :email, :presence => true
+	has_many :orders
+	has_secure_password
+	validates :email, :presence => true
+	before_create {generate_token :auth_token}
+	
 
-# 	has_secure_password
+	def generate_token column
+		begin
+			self[column] = SecureRandom.urlsafe_base64
+		end while User.exists?(column => self[column])
+	end
 end

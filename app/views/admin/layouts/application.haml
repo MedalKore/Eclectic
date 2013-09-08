@@ -1,0 +1,16 @@
+!!!
+%html
+	%head
+		%title Admin
+		= javascript_include_tag "jquery-1.10.2"
+		= javascript_include_tag "jquery-ui"
+		= stylesheet_link_tag "admin/admin", :media => "all"
+		=#  javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'
+		= javascript_include_tag "application"
+		= csrf_meta_tags
+	%body
+		#container
+			- if admin?
+				= render 'admin/layouts/side_panel_admin'
+			= yield
+

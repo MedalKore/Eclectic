@@ -2,11 +2,29 @@
 %html
 	%head
 		%title= "#{@title} : Eclectic Expressions"
+		= javascript_include_tag "jquery-1.10.2"
+		= javascript_include_tag "jquery-ui"
+		= javascript_include_tag "jMenu.jquery.min"
 		= stylesheet_link_tag "application", :media => "all"
-		=#  javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'
 		= javascript_include_tag "application"
 		= csrf_meta_tags
 	%body
+		%nav#main
+			%ul.borderr
+				%li.last
+					-unless current_user
+						= link_to "Log In", account_path, {:title => "Log In"}
+					-else
+						= link_to "Log Out", sign_out_path, {:title => "Log Out"}
+				%li
+					= link_to "Contact", contact_path, {:id => 'contact', :title => "Contact"}
+				%li
+					= link_to 'About', about_path, {:id => 'about', :title => "About"}
+				%li
+					= link_to 'Home', root_path, {:id => 'home', :title => "Home"}
+				-if current_user
+					%li
+						= link_to 'Hello, '+ current_user.firstname, account_path
 		#container	
 			= render 'layouts/header'
 			= yield

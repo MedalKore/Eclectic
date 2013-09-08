@@ -1,7 +1,21 @@
 - unless @products.nil?
+<<<<<<< HEAD
 	#qitem
 		%ul
 		- for product in @products do
 			%li.item
 				%p= link_to image_tag("photos/complee/#{product.filename}_small.jpg"), item_path(:id => product.id), :class => 'newpic'
 				%p= "$#{product.price}"
+=======
+	#select_products
+		%ul
+			- if @products.is_a?(ActiveRecord::Relation::ActiveRecord_Relation_Product) || @products.is_a?(Hash)
+				- for product in @products do
+					%li.row
+						= link_to image_tag(product.product_image.url(:small), class: "image_thumb"), product_path(:id => product.id)
+						%p= "Price: $#{product.price}"
+			-else
+				%li.row
+					= link_to image_tag(@products.product_image.url(:small), class: "image_thumb"), product_path(:id => @products.id)
+					%p= "Price: $#{@products.price}"
+>>>>>>> Reinitialized repo because removing a bunch of large old files is tedious.

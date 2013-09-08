@@ -1,6 +1,6 @@
 %ul{class: "item_#{@item.product_id}"}
 	%li.{class: "image_#{@item.product_id}"}
-		= link_to image_tag("photos/complee/#{@item.cart_item_filename(@item.product_id)}_small.jpg"), item_path(:id => @item.product_id)
+		= link_to image_tag(@item.product.product_image.path(:thumbnail))), product_path(:id => @item.product_id)
 	%li{class: "amount_#{@item.product_id}"}
 		= @item.amount
 	%li{class: "price_#{@item.product_id}"}

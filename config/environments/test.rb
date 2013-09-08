@@ -7,6 +7,11 @@ Eclectic::Application.configure do
   # and recreated between test runs. Don't rely on the data there!
   config.cache_classes = true
 
+<<<<<<< HEAD
+=======
+  config.eager_load = false
+
+>>>>>>> Reinitialized repo because removing a bunch of large old files is tedious.
   # Configure static asset server for tests with Cache-Control for performance
   config.serve_static_assets = true
   config.static_cache_control = "public, max-age=3600"
@@ -29,9 +34,12 @@ Eclectic::Application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
 
+<<<<<<< HEAD
   # Raise exception on mass assignment protection for Active Record models
   config.active_record.mass_assignment_sanitizer = :strict
 
+=======
+>>>>>>> Reinitialized repo because removing a bunch of large old files is tedious.
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 end

@@ -1,9 +1,14 @@
 class Product < ActiveRecord::Base
-#   attr_accessible :category, :filename, :name, :price, :quantity, :gender, :subcategory, :description
-#   has_many :order
-#   has_many :cart_items
-#   has_many :cart, :through => :cart_items
+  has_many :cart_items
+  has_many :cart, :through => :cart_items
 
- 
+  has_attached_file :product_image,
+	  styles: {thumbnail: 'x100', small: 'x150', original: 'x350'},
+	  url: 'photos/:class/:attachment/:style/:basename.:extension',
+	  path: ":rails_root/app/assets/images/photos/:class/:attachment/:style/:basename.:extension"
 
+	  cattr_reader :category_options, :subcategory_options, :gender_options
+	  @@category_options = ['necklace', 'bracelet', 'anklet', 'survivor bracelet', 'accessory']
+	  @@subcategory_options = ['keychain', 'earring']
+	  @@gender_options = ['men', 'women']
 end

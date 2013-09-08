@@ -4,20 +4,26 @@
 		%li Amount
 		%li Unit Price
 		%li Full Price
-	- for item in @cart.cart_items do	
-		%ul{class: "item_#{item.product_id} #{cycle(:odd, :even)}", :id => 'items'}
-			%li{class: "image_#{item.product_id}"}<
-				= link_to image_tag("photos/complee/#{item.cart_item_filename(item.product_id)}_small.jpg"), item_path(:id => item.product_id)
-				= remove_from_cart_link(item.product_id)
-			%li{class: "amount_#{item.product_id}"}<
-				= item.amount
-			%li{class: "price_#{item.product_id}"}<
-				= "$#{item.price}"
-			%li{class: "full_price_#{item.product_id}"}<
-				= "$#{item.full_price}"
-#back_check
-	= link_to 'Back to Shopping', @referer
-	= link_to 'Checkout'
-%p#cart_total
-	%strong
-		= "Total: $#{sprintf("%0.2f", @cart.total)}"
+	- unless @cart.cart_items.empty?
+		- for item in @cart.cart_items do	
+			%ul{class: "item_#{item.product_id} #{cycle(:odd, :even)}", :id => 'items'}
+				%li{class: "image_#{item.product_id}"}<
+					= link_to image_tag("photos/complete/#{item.cart_item_filename(item.product_id)}_small.jpg"), item_path(:id => item.product_id)
+					= remove_from_cart_link(item.product_id)
+				%li{class: "amount_#{item.product_id}"}<
+					= item.amount
+				%li{class: "price_#{item.product_id}"}<
+					= "$#{item.price}"
+				%li{class: "full_price_#{item.product_id}"}<
+					= "$#{item.full_price}"
+	-else
+		%p Your cart is empty
+	#back_check
+		= link_to 'Back to Shopping', products_path
+		= form_tag "https://www.sandbox.paypal.com/cgi-bin/webscr" do
+			= hidden_field_tag :cmd, "_s-xclick"
+			= hidden_field_tag :encrypted, @cart.paypal_encrypted(products_url, payment_notification_url)
+			%p#cart_total
+				%strong
+					= "Total: $#{sprintf("%0.2f", @cart.total)}"
+				= submit_tag '', id: "pay_button"

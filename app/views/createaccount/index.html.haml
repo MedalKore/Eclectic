@@ -1,20 +1,20 @@
 %section#createaccount
-	= form_tag('createaccount/create') do
+	= form_tag create_path do
 		%table
-		%tr
-			%td= label_tag 'username', 'Username:', :class => 'username'
-			%td= text_field_tag :username, nil, :class => 'username'
-		%tr
-			%td= label_tag 'password', 'Password:', :class => 'password'
-			%td= password_field_tag :password, nil, :class => 'password'
-		%tr
-			%td= label_tag 'email', 'Email:', :class => 'email'
-			%td= text_field_tag :email, nil, :class => 'email'
-		%tr
-			%td= label_tag 'firstname', 'First Name:', :class => 'firstname'
-			%td= text_field_tag :firstname, nil, :class => 'firstname'
-		%tr
-			%td= label_tag 'lastname', 'Last Name:', :class => 'lastname'
-			%td= text_field_tag :lastname, nil, :class => 'lastname'
+			%tr
+				%td= label_tag 'email', 'Email:', :class => 'email'
+				%td= text_field_tag :email, nil, :class => 'email'
+			%tr
+				%td= label_tag 'firstname', 'First Name:', :class => 'firstname'
+				%td= text_field_tag :firstname, nil, :class => 'firstname'
+			%tr
+				%td= label_tag 'lastname', 'Last Name:', :class => 'lastname'
+				%td= text_field_tag :lastname, nil, :class => 'lastname'
+			%tr
+				%td= label_tag 'password', 'Password:', :class => 'password'
+				%td= password_field_tag :password, nil, :class => 'password'
+			%tr
+				%td= label_tag 'password_confirmation', 'Confirm Password:', :class => 'password'
+				%td= password_field_tag :password_confirmation, nil, :class => 'password'
 		= submit_tag 'Create Account', :id => 'accountsubmit'
 	

@@ -1,10 +1,18 @@
 - unless @product.nil?
 	#product
+<<<<<<< HEAD
 		= image_tag("photos/complee/#{@product.filename}.JPG")
+=======
+		= image_tag(@product.product_image.url(:original))
+>>>>>>> Reinitialized repo because removing a bunch of large old files is tedious.
 	#productinfo
 		%p= @product.price
 		%p= @product.category
 		- unless @product.subcategory.nil?
 			%p= @product.subcategory
+<<<<<<< HEAD
 		%p= link_to '+', add_path(:id => @product.id), :remote => true, :id => "add_#{@product.id}"
+=======
+		%p= link_to image_tag("site/bag.png", title: "Add to Cart"), add_path(:id => @product.id), :remote => true, :id => "add_#{@product.id}"
+>>>>>>> Reinitialized repo because removing a bunch of large old files is tedious.
 

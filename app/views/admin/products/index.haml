@@ -1,0 +1,23 @@
+%section#product_container
+	= link_to 'New Product', admin_new_product_path, id: 'new_p'
+	%ul#products
+		%li.name Name
+		%li.quantity Quantity
+		%li.category Category
+		%li.price Price
+		%li.description Description
+		%li.gender Gender
+		%li.subcategory Subcategory
+		%li.image Product Image
+	- for p in @products do
+		%ul#product
+			%li.name= p.name
+			%li.quantity= p.quantity
+			%li.category= p.category.capitalize
+			%li.price= "$#{sprintf("%0.2f", p.price)}"
+			%li.description= p.description#raw word_wrap(p.description, line_width: 40, line_break: "<br>")
+			%li.gender= p.gender
+			%li.subcategory= p.subcategory
+			%li.image= image_tag p.product_image.url(:thumbnail)
+			%li.edit= link_to "Edit", admin_product_edit_path(product_id: p.id)
+			%li.delete= link_to "Delete", admin_product_delete_path(product_id: p.id)

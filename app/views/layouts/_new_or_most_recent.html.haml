@@ -1,7 +1,17 @@
+<<<<<<< HEAD
 #nitem
 	%ul
 	- for item in @new_products do
 		%li.newitem
 			%p= link_to image_tag("photos/complete/#{item.filename}_small.jpg"), item_path(:id => item.id), :class => 'newpic'
 			%p= "$#{item.price} -------"
+=======
+#new_products
+	%ul
+		%h2 New Products
+		- for item in @new_products do
+			%li
+				= link_to image_tag(item.product_image.url(:thumbnail), class: "image_thumb"), product_path(:id => item.id)
+				%p= "$#{item.price} -------"
+>>>>>>> Reinitialized repo because removing a bunch of large old files is tedious.
 			

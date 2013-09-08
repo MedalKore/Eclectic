@@ -1,5 +1,6 @@
 Eclectic::Application.routes.draw do
   
+<<<<<<< HEAD
   get "payment_notification/create"
 
   # match "/(:action)" => "home"
@@ -26,6 +27,40 @@ Eclectic::Application.routes.draw do
   match '/contact' => 'home#contact'
   match '/about' => 'home#about'
   match '/' => 'home#index', :as => 'home'
+=======
+  namespace :admin do
+    get 'users' => 'admin#index', as: 'users'
+    get 'products' => 'products#index', as: 'products'
+    get "products/new" => 'products#new', as: 'new_product'
+    get "products/destroy/:product_id" => 'products#destroy', as: 'product_delete'
+    post "products/create" => 'products#create', as: 'create_product'
+    get "products/edit/:product_id" => 'products#edit', as: 'product_edit'
+    patch "products/update" => 'products#update', as: 'update_product'
+    post "sessions/create" => 'sessions#create', as: 'sessions_create'
+    get "logout" => 'sessions#destroy', as: 'logout'
+  end
+  get "admin" => 'admin/sessions#index'
+  get "payment_notification" => "payment_notification#create"
+
+  # match "/(:action)" => "home"
+  post "createaccount/create" => 'createaccount#create', as: 'create'
+  get 'cart' => 'cart#index'
+  get 'cart/empty_cart' => 'cart#empty_cart'
+  get 'product/add_to_cart/:id' => 'product#add_to_cart', as: 'add'
+  post 'cart/remove_from_cart/:id' => 'cart#remove_from_cart', as: 'remove'
+  get 'product/:id' => 'product#show', as: 'product'
+  get 'products' => 'product#index', as: 'products'
+  get 'products/friendship' => 'product#friendship', as: 'friendship'
+  get 'products/survivorbracelets' => 'product#survivor', as: 'survivor'
+  get 'products/:category/all' => 'product#find_all', as: 'find_all'
+  get 'products/:category/:sub_gender' => 'product#category', as: 'category'
+  post 'account/login' => 'session#create', as: 'log_in'
+  get 'account/logout' => 'session#destroy', as: 'sign_out'
+  get 'account' => 'session#index', as: 'account'
+  get '/signup' => 'createaccount#index', as: 'create_account'
+  get '/contact' => 'home#contact'
+  get '/about' => 'home#about'
+>>>>>>> Reinitialized repo because removing a bunch of large old files is tedious.
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

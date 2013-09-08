@@ -3,3 +3,7 @@
 # To ban all spiders from the entire site uncomment the next two lines:
 # User-Agent: *
 # Disallow: /
+<<<<<<< HEAD
+=======
+Disallow: /admin/*
+>>>>>>> Reinitialized repo because removing a bunch of large old files is tedious.

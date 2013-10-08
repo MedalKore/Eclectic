@@ -1,0 +1,14 @@
+- unless @orders.empty?
+	%ul.orders_list
+		- @orders.each do |order|		
+			%li
+				= order.id
+				%ul.inner_list
+					- order_cart(order.cart_id) do |products|
+						- products.each do |p|
+							%li= "#{p.name} Price: #{p.price}"
+							%br
+					%li= "Total: #{order_total order}"
+
+-else
+	%p= raw "You haven't made any orders yet. Why not start #{link_to('here', products_path)}."

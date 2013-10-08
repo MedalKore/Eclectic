@@ -1,25 +1,24 @@
 #cart_items
 	%ul#headers.odd
-		%li Items
-		%li Amount
-		%li Unit Price
-		%li Full Price
+		%li.header.item Item
+		%li.header.amount Amount
+		%li.header.unit_price Unit Price
+		%li.header.full_price Full Price
 	- unless @cart.cart_items.empty?
 		- for item in @cart.cart_items do	
 			%ul{class: "item_#{item.product_id} #{cycle(:odd, :even)}", :id => 'items'}
-				%li{class: "image_#{item.product_id}"}<
-					= link_to image_tag("photos/complete/#{item.cart_item_filename(item.product_id)}_small.jpg"), item_path(:id => item.product_id)
+				%li.cart_item.image<
+					= link_to image_tag(item.cart_item_product(item.product_id).product_image.url(:thumbnail)), product_path(:id => item.product_id)
 					= remove_from_cart_link(item.product_id)
-				%li{class: "amount_#{item.product_id}"}<
+				%li.cart_item.amount<
 					= item.amount
-				%li{class: "price_#{item.product_id}"}<
+				%li.cart_item.price<
 					= "$#{item.price}"
-				%li{class: "full_price_#{item.product_id}"}<
+				%li.cart_item.full_price<
 					= "$#{item.full_price}"
 	-else
 		%p Your cart is empty
-	#back_check
-		= link_to 'Back to Shopping', products_path
+	#checkout
 		= form_tag "https://www.sandbox.paypal.com/cgi-bin/webscr" do
 			= hidden_field_tag :cmd, "_s-xclick"
 			= hidden_field_tag :encrypted, @cart.paypal_encrypted(products_url, payment_notification_url)
@@ -27,3 +26,4 @@
 				%strong
 					= "Total: $#{sprintf("%0.2f", @cart.total)}"
 				= submit_tag '', id: "pay_button"
+		= link_to 'Back to Shopping', products_path, class: 'back_to_shopping'

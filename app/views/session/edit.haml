@@ -1,0 +1,18 @@
+%section.update_user
+	=form_for @current_user, url: user_update_path do |p|
+		= p.label :firstname, "First Name:"
+		= p.text_field :firstname
+		%br
+		= p.label :lastname, 'Last Name:'
+		= p.text_field :lastname
+		%br
+		= p.label :email, "Email:"
+		= p.email_field :email
+		%br
+		= p.label :password, "Password:"
+		= p.password_field :password
+		%br
+		= p.label :password_confirmation, "Password Confirmation:"
+		= p.password_field :password_confirmation
+		%br
+		= p.submit 'Update'

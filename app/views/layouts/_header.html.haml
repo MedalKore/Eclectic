@@ -50,9 +50,9 @@
 						= link_to 'Keychains', accessories_path(:subc => 'keychain')
 =======
 %p#flash= flash[:notice] || flash[:error]
-- unless current_user
-	= ab_test "Sign Up Button", ["Sign Up", "Register"], conversion: "signed_up" do |verbage|
-		= link_to verbage, create_account_path, id: "sign_up"
+- unless current_user || @current_user
+	-# = ab_test "Sign Up Button", ["Sign Up", "Register"], conversion: "signed_up" do |verbage|
+	= link_to 'Sign Up', create_account_path, id: "sign_up"
 
 #shoppingcart
 	= link_to cart_path, :id => "cart", :title => "My Cart" do

@@ -22,8 +22,20 @@ class SessionController < ApplicationController
     end
   end
 
+
+
   def update
-    
+    if @user = current_user.update_attributes(params.require(:user).permit!)
+      flash[:notice] = 'Update successful.'
+      redirect_to :account
+    else
+      flash[:error] = @user.errors
+      redirect_to request.referrer
+    end
+  end
+
+  def orders
+    @orders = current_user.orders.all
   end
 
   def sign_in(user)

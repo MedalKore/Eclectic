@@ -8,7 +8,7 @@ class PaymentNotification < ActiveRecord::Base
 
   def completed
   	if status == "Completed"
-  		cart.update_attribute(completed: true)
+  		cart.update_attribute(:completed, true)
   	end
   end
 end

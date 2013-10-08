@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
 	before_filter :newest_items, :except => {:controller => 'admin/admin'}
 	before_filter :current_cart, :except => {:controller => 'admin/admin'}
 	before_filter :last_item, :except => {:controller => 'admin/admin'}
-	before_filter :clear_cart, only: {controller: :cart, action: :empty_cart}
 	before_filter :admin?, only: {controller: 'admin/*'}
 
 	def newest_items
@@ -19,15 +18,24 @@ class ApplicationController < ActionController::Base
 	end
 
 	def current_user
-		@current_user ||= User.find_by(auth_token: (cookies[:auth_token] || session[:auth_token])) if cookies[:auth_token] || session[:auth_token]
+		@current_user ||= User.find_by(auth_token: (cookies[:auth_token] || session[:auth_token]))# if cookies[:auth_token] || session[:auth_token]
 	end
 	helper_method :current_user
 
 	def admin?
-		@admin ||= Admin.find_by(auth_token: (cookies[:auth_token] || session[:auth_token])) if cookies[:auth_token] || session[:auth_token]
+		@admin ||= Admin.find_by(auth_token: (cookies[:auth_token] || session[:auth_token]))# if cookies[:auth_token] || session[:auth_token]
 	end
 	helper_method :admin?
 	
+	def sign_in(user)
+    cookies.permanent[:auth_token] = user.auth_token
+    current_user = user
+  end
+
+  def current_user=(user)
+    @current_user = user
+  end
+  
 	private
 
 	def current_cart
@@ -41,6 +49,7 @@ class ApplicationController < ActionController::Base
 		end
 	end
 	
+
 
 	def last_item
 		@item = @cart.cart_items.where(product_id: (params[:id]))

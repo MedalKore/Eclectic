@@ -6,22 +6,22 @@ class CreateaccountController < ApplicationController
 	end
 
 	def create
-		@password = params[:password]
-		@password_confirmation = params[:password_confirmation]
-		@email = params[:email]
-		@firstname = params[:firstname]
-		@lastname  = params[:lastname]
-
-		if @email
-			@user = User.create(:email => @email, :password => @password, password_confirmation: @password_confirmation, firstname: @firstname, lastname: @lastname)
-			if @user
-				bingo!("signed_up")
-				@current_user = @user
-				flash[:notice] = "Success!"
-				redirect_to :root
-			end
+		@email, @password, @password_confirmation = params[:email], params[:password], params[:password_confirmation]
+		@firstname, @lastname = params[:firstname], params[:lastname]
+		@user = User.create(
+      email: @email,
+      password: @password,
+      password_confirmation: @password_confirmation,
+      firstname: @firstname,
+      lastname: @lastname)
+		if @user.save
+			bingo!("signed_up")
+			sign_in @user
+			flash[:notice] = "Success!"
+			redirect_to :account
 		else
-			flash[:error] = "Sorry, there was a problem with your account creation, please try again."
+			flash[:error] = @user.errors
+			redirect_to :create_account
 		end
 	end
 

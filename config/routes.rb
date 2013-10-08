@@ -38,8 +38,8 @@ Eclectic::Application.routes.draw do
     patch "products/update" => 'products#update', as: 'update_product'
     post "sessions/create" => 'sessions#create', as: 'sessions_create'
     get "logout" => 'sessions#destroy', as: 'logout'
+    get "admin" => 'sessions#index'
   end
-  get "admin" => 'admin/sessions#index'
   get "payment_notification" => "payment_notification#create"
 
   # match "/(:action)" => "home"
@@ -54,6 +54,8 @@ Eclectic::Application.routes.draw do
   get 'products/survivorbracelets' => 'product#survivor', as: 'survivor'
   get 'products/:category/all' => 'product#find_all', as: 'find_all'
   get 'products/:category/:sub_gender' => 'product#category', as: 'category'
+  patch 'account/update' => 'session#update', as: 'user_update'
+  get 'account/orders' => 'session#orders', as: 'user_orders'
   post 'account/login' => 'session#create', as: 'log_in'
   get 'account/logout' => 'session#destroy', as: 'sign_out'
   get 'account' => 'session#index', as: 'account'

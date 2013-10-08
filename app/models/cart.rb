@@ -23,9 +23,9 @@ class Cart < ActiveRecord::Base
   def remove(product_id)
   	ci = cart_items.find_by_product_id(product_id)
     if !ci.nil?
-			ci.amount > 1 ? ci.update_attribute(:amount, ci.amount - 1) : CartItem.destroy(ci.id)
+			ci.amount > 1 ? ci.update_attribute(:amount, ci.amount - 1) : cart_items.destroy(ci.id)
     end
-    if CartItem.find_by_product_id(product_id).nil?
+    if cart_items.find_by_product_id(product_id).nil?
       ci = nil
     end
 

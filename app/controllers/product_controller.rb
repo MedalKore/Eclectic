@@ -88,19 +88,19 @@ class ProductController < ApplicationController
 	end
 
 	def legit_category
-		Product.categories.detect do |cat|
+		Product.category_options.detect do |cat|
 			cat == @category
 		end
 	end
 
 	def legit_subcategory
-		Product.subcategories.detect do |subcat|
+		Product.subcategory_options.detect do |subcat|
 			subcat == @sub_gender
 		end
 	end
 
 	def legit_gender
-		Product.gender.detect do |gender|
+		Product.gender_options.detect do |gender|
 			gender == @sub_gender
 		end
 	end

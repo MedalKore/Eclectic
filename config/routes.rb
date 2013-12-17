@@ -1,33 +1,5 @@
 Eclectic::Application.routes.draw do
   
-<<<<<<< HEAD
-  get "payment_notification/create"
-
-  # match "/(:action)" => "home"
-  match '/custom/:action(/:id)' => 'custom#add_it', :as => 'add_it'
-  match '/custom/:category/addclasp' => 'custom#add_clasp', :as => 'add_clasp'
-  match '/custom/:category/addpendant' => 'custom#add_pendant', :as => 'add_pendant'
-  match '/custom/:category/addspacerbeads' => 'custom#add_spacer_beads', :as => 'add_spacer_beads'
-  match '/custom/:category/addmainbeads' => 'custom#add_main_beads', :as => 'add_main_beads'
-  match '/custom/:category/addknot' => 'custom#add_knot', :as => 'add_knot'
-  match '/custom/:category/addhemp' => 'custom#add_hemp_and_length', :as => 'add_hemp'
-  match '/custom' => 'custom#index', :as => 'custom'
-  match '/custom/(:pick)' => 'custom#category_pick' , :as => 'picked'
-  match 'cart' => 'cart#index'
-  match 'product/add_to_cart/:id' => 'product#add_to_cart', :as => 'add'
-  match 'cart/remove_from_cart/:id' => 'cart#remove_from_cart', :as => 'remove'
-  match 'product' => 'product#index'
-  match 'product/accessories(/:subc)' => 'product#accessories', :as => 'accessories'
-  match 'product/survivorbracelets' => 'product#survivor', :as => 'survivor'
-  match 'product/(:id)' => 'product#show', :as => 'item'
-  match 'product/:category/all' => 'product#find_all', :as => 'find_all'
-  match 'product/:category(/:premade(/:gender))' => 'product#category', :as => 'category'
-  match 'account/login' => 'account#login', :as => 'login'
-  match '/creataccount' => 'creataccount#create', :as => 'createaccount'
-  match '/contact' => 'home#contact'
-  match '/about' => 'home#about'
-  match '/' => 'home#index', :as => 'home'
-=======
   namespace :admin do
     get 'users' => 'admin#index', as: 'users'
     get 'products' => 'products#index', as: 'products'
@@ -38,8 +10,8 @@ Eclectic::Application.routes.draw do
     patch "products/update" => 'products#update', as: 'update_product'
     post "sessions/create" => 'sessions#create', as: 'sessions_create'
     get "logout" => 'sessions#destroy', as: 'logout'
-    get "admin" => 'sessions#index'
   end
+  get 'admin' => 'admin/sessions#index'
   get "payment_notification" => "payment_notification#create"
 
   # match "/(:action)" => "home"
@@ -62,7 +34,6 @@ Eclectic::Application.routes.draw do
   get '/signup' => 'createaccount#index', as: 'create_account'
   get '/contact' => 'home#contact'
   get '/about' => 'home#about'
->>>>>>> Reinitialized repo because removing a bunch of large old files is tedious.
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

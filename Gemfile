@@ -6,8 +6,14 @@ gem 'rails'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'pg'
 gem 'haml'
-gem 'puma'
-gem 'abingo'
+
+unless RUBY_PLATFORM =~ /cygwin|mswin|mingw|bccwin|wince|emx|windows/
+	gem 'puma'
+else
+	gem 'thin'
+end
+
+gem 'abingo', git: 'git://github.com/lemmonhead/abingo.git'
 gem 'dalli'
 gem 'paperclip'
 
@@ -31,7 +37,7 @@ end
 
 
 # To use ActiveModel has_secure_password
-gem 'bcrypt-ruby', "~> 3.0.0"
+gem 'bcrypt-ruby'#, "~> 3.0.0"
 
 # gem 'omniauth-identity'
 # To use Jbuilder templates for JSON
@@ -44,4 +50,4 @@ gem 'bcrypt-ruby', "~> 3.0.0"
 # gem 'capistrano'
 
 # To use debugger
-gem 'debugger'
+# gem 'debugger'

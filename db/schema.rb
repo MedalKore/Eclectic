@@ -9,34 +9,6 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-<<<<<<< HEAD
-# It's strongly recommended to check this file into your version control system.
-
-ActiveRecord::Schema.define(:version => 20130716213721) do
-
-  create_table "cart_items", :force => true do |t|
-    t.integer  "cart_id"
-    t.integer  "product_id"
-    t.integer  "custom_made_id"
-    t.integer  "amount"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
-
-  create_table "carts", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "orders", :force => true do |t|
-    t.integer  "user_ID"
-    t.integer  "product_ID"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "payment_notifications", :force => true do |t|
-=======
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20130918032054) do
@@ -100,47 +72,20 @@ ActiveRecord::Schema.define(version: 20130918032054) do
   end
 
   create_table "payment_notifications", force: true do |t|
->>>>>>> Reinitialized repo because removing a bunch of large old files is tedious.
     t.text     "params"
     t.integer  "cart_id"
     t.string   "status"
     t.string   "transaction_id"
-<<<<<<< HEAD
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
-
-  create_table "products", :force => true do |t|
-=======
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "products", force: true do |t|
->>>>>>> Reinitialized repo because removing a bunch of large old files is tedious.
     t.string   "name"
     t.string   "category"
     t.integer  "price"
     t.string   "description"
     t.integer  "quantity"
-<<<<<<< HEAD
-    t.string   "filename"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.string   "gender"
-    t.string   "subcategory"
-  end
-
-  create_table "users", :force => true do |t|
-    t.string   "username"
-    t.string   "password_digest"
-    t.string   "email"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-    t.string   "firstname"
-    t.string   "lastname"
-    t.string   "auth_token"
-=======
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "gender"
@@ -160,7 +105,6 @@ ActiveRecord::Schema.define(version: 20130918032054) do
     t.string   "lastname"
     t.string   "auth_token"
     t.string   "remember_me"
->>>>>>> Reinitialized repo because removing a bunch of large old files is tedious.
   end
 
 end

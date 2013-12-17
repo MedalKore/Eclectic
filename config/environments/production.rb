@@ -1,9 +1,7 @@
 Eclectic::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
-<<<<<<< HEAD
-=======
+
   config.eager_load = true
->>>>>>> Reinitialized repo because removing a bunch of large old files is tedious.
 
   # Code is not reloaded between requests
   config.cache_classes = true
@@ -44,13 +42,8 @@ Eclectic::Application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
   # Use a different cache store in production
-<<<<<<< HEAD
-  # config.cache_store = :mem_cache_store
-
-=======
   config.cache_store = :dalli_store
   
->>>>>>> Reinitialized repo because removing a bunch of large old files is tedious.
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
 
@@ -60,23 +53,11 @@ Eclectic::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 
-<<<<<<< HEAD
-  # Enable threaded mode
-  # config.threadsafe!
-
-=======
->>>>>>> Reinitialized repo because removing a bunch of large old files is tedious.
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
-<<<<<<< HEAD
 
-  # Log the query plan for queries taking more than this (works
-  # with SQLite, MySQL, and PostgreSQL)
-  # config.active_record.auto_explain_threshold_in_seconds = 0.5
-=======
->>>>>>> Reinitialized repo because removing a bunch of large old files is tedious.
 end

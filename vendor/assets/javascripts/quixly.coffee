@@ -30,9 +30,6 @@ Quixly = {
 			url: quixlySurveyAPI,
 			async: true
 			})
-		# alert xhrSurveyRequest
-		# xhrSurveyRequest.open 'POST', quixlySurveyAPI
-		# xhrSurveyRequest.send()
 
 	getQuixlyQueryValues: (query, quixlyKeyParam, quixlySurveyParam) ->
 		individual_queries = query.split(/^\?/).pop().split('&')
@@ -45,6 +42,3 @@ Quixly = {
 			values
 }
 
-unless typeof jQuery is 'undefined'
-	console.log document.getElementsByTagName('head')[0]
-	# $('document').ready(Quixly.init())

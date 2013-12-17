@@ -1,56 +1,5 @@
-<<<<<<< HEAD
-%header
-	%nav#main
-		%ul.borderr
-			%li
-				= link_to "Log In", login_path, {:class => "last", :title => "Log In"}
-			%li
-				= link_to "Create Account", createaccount_path, {:id => 'creataccount'}
-			%li
-				= link_to "Contact", contact_path, {:id => 'contact'}
-			%li
-				= link_to 'About', about_path, {:id => 'about'}
-			%li
-				= link_to 'Home', home_path, {:id => 'home'}
-	%p#flash
-	#shoppingcart
-		= link_to cart_path, :id => "cart", :title => "My Cart" do
-			= image_tag('site/bag.png', :id => 'bag')
-			= "My Cart ("
-			-if @cart.cart_items.empty?
-				%span>= "is empty)"
-			-else
-				%span>= "$#{sprintf("%0.2f", @cart.total)}"
-				)
-	%nav#cat
-		%ul#jMenu
-			%li#neck
-				= link_to 'Necklace', nil, :class => "fNiv"
-				%ul
-					%li
-						= link_to 'All', find_all_path(:category => 'necklace')
-					%li
-						= link_to 'Men', category_path(:category => 'necklace',:gender => 'men')
-					%li
-						= link_to 'Women', category_path(:category => 'necklace', :gender => 'women')
-					%li
-						= link_to 'Friendship', category_path(:category => 'friendship')
-			%li
-				= link_to 'Bracelets', category_path(:category => 'bracelets'), :class => "fNiv"
-			%li
-				= link_to 'Anklets', category_path(:category => 'anklets'), :class => "fNiv"					
-			%li
-				= link_to 'Survivor Bracelets', survivor_path
-			%li
-				= link_to 'Earrings', accessories_path(:subc => 'earrings'), {:class => "fNiv"}
-			%li
-				= link_to 'Accessories', nil, {:class => "fNiv"}
-				%ul
-					%li
-						= link_to 'Keychains', accessories_path(:subc => 'keychain')
-=======
-%p#flash= flash[:notice] || flash[:error]
-- unless current_user || @current_user
+%p#flash= flash.now[:notice] || flash.now[:error]
+- unless current_user
 	-# = ab_test "Sign Up Button", ["Sign Up", "Register"], conversion: "signed_up" do |verbage|
 	= link_to 'Sign Up', create_account_path, id: "sign_up"
 
@@ -92,5 +41,4 @@
 						= link_to 'Keychains', category_path(category: 'accessories', sub_gender: 'keychain')
 					%li
 						= link_to 'Earrings', category_path(category: 'accessories', sub_gender: 'earrings')
->>>>>>> Reinitialized repo because removing a bunch of large old files is tedious.
 					

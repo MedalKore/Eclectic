@@ -1,9 +1,5 @@
 $(function(){
-<<<<<<< HEAD
-	$('#shoppingcart span').text("<%=raw sprintf('%0.2f', @cart.total) %>");
-=======
 	$('.items').text("<%= @cart.cart_items.count %> Items(");
 	$('.total').text("<%= raw sprintf('%0.2f', @cart.total) %>)");
->>>>>>> Reinitialized repo because removing a bunch of large old files is tedious.
 	$('#flash').text("<%= flash[:item_add] %>");
 });

@@ -15,7 +15,7 @@ class SessionController < ApplicationController
     if @current_user && @current_user.authenticate(params[:log_in][:password])
       sign_in @current_user
       flash[:notice] = 'Log in successful.'
-      redirect_to :products
+      redirect_to :account
     else
       flash[:error] = "Log in failed. Please try again."
       redirect_to :log_in

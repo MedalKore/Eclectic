@@ -16,9 +16,9 @@
         %td.quantity= p.quantity
         %td.category= p.category.capitalize
         %td.price= "$#{sprintf("%0.2f", p.price)}"
-        %td.description= p.description #raw word_wrap(p.description, line_width: 40, line_break: "<br>")
-        %td.gender= p.gender
-        %td.subcategory= p.subcategory
+        %td.description= p.description
+        %td.gender= p.gender || 'None'
+        %td.subcategory= p.subcategory || 'None'
         %td.image= image_tag p.product_image.url(:thumbnail)
         %td.edit= link_to "Edit", admin_product_edit_path(product_id: p.id)
         %td.delete= link_to "Delete", admin_product_delete_path(product_id: p.id)

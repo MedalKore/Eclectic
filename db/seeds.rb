@@ -11,34 +11,34 @@ User.create(firstname: "Bro", lastname: "Seph", email: "broseph@example.com", pa
 Admin.create(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
 3.times do |n|
-	Product.create(name: "Product #{n}", category: "Necklace", price: "25.00", description: "Description about necklace goes here.", quantity: "1", gender: 'Men')
+	Product.create(name: "Product #{n}", category: "necklace", price: "25.00", description: "Description about necklace goes here.", quantity: "1", gender: 'men')
 end
 
 
 4.times do |n|
-	Product.create(name: "Product #{n}", category: "Bracelet", price: "15.00", description: "Description about bracelet goes here.", quantity: "1")
+	Product.create(name: "Product #{n}", category: "bracelet", price: "15.00", description: "Description about bracelet goes here.", quantity: "1")
 end
 
 4.times do |n|
-	Product.create(name: "Product #{n}", category: "Anklet", price: "15.00", description: "Description about anklet goes here.", quantity: "1")
-
-end
-
-4.times do |n|
-	Product.create(name: "Product #{n}", category: "Survivor Bracelet", price: "15.00", description: "Description about Survivor Bracelet goes here.", quantity: "1")
+	Product.create(name: "Product #{n}", category: "anklet", price: "15.00", description: "Description about anklet goes here.", quantity: "1")
 
 end
 
 4.times do |n|
-	Product.create(name: "Product #{n}", category: "Accessories", price: "15.00", description: "Description about accessories goes here.", quantity: "1", subcategory: "keychain")
+	Product.create(name: "Product #{n}", category: "survivor sracelet", price: "15.00", description: "Description about Survivor Bracelet goes here.", quantity: "1")
+
+end
+
+4.times do |n|
+	Product.create(name: "Product #{n}", category: "accessories", price: "15.00", description: "Description about accessories goes here.", quantity: "1", subcategory: "keychain")
 end
 
 
 4.times do |n|
-	Product.create(name: "Product #{n}", category: "Accessories", price: "10.00", description: "Description about necklace goes here.", quantity: "1", subcategory: 'earring')
+	Product.create(name: "Product #{n}", category: "accessories", price: "10.00", description: "Description about necklace goes here.", quantity: "1", subcategory: 'earring')
 end
 
 4.times do |n|
-	Product.create(name: "Product #{n}", category: "Necklace", price: "25.00", description: "Description about necklace goes here.", quantity: "1", gender: 'Women')
+	Product.create(name: "Product #{n}", category: "necklace", price: "25.00", description: "Description about necklace goes here.", quantity: "1", gender: 'women')
 end
 

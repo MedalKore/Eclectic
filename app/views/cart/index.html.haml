@@ -27,3 +27,8 @@
 					= "Total: $#{sprintf("%0.2f", @cart.total)}"
 				= submit_tag '', id: "pay_button"
 		= link_to 'Back to Shopping', products_path, class: 'back_to_shopping'
+		- unless current_user
+			= link_to 'Log in', account_path
+			or
+			= link_to 'Register', create_account_path
+			to save your order.

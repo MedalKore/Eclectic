@@ -2,6 +2,10 @@ Eclectic::Application.routes.draw do
   
   namespace :admin do
     get 'users' => 'admin#index', as: 'users'
+    get 'users/new' => 'admin#new', as: 'new_user'
+    post 'users/create' => 'admin#create', as: 'create_user'
+    get 'users/edit/:admin_user_id' => 'admin#update', as: 'user_edit'
+    get 'users/delete/:admin_user_id' => 'admin#delete', as: 'user_delete'
     get 'products' => 'products#index', as: 'products'
     get "products/new" => 'products#new', as: 'new_product'
     get "products/destroy/:product_id" => 'products#destroy', as: 'product_delete'
@@ -10,8 +14,8 @@ Eclectic::Application.routes.draw do
     patch "products/update" => 'products#update', as: 'update_product'
     post "sessions/create" => 'sessions#create', as: 'sessions_create'
     get "logout" => 'sessions#destroy', as: 'logout'
+    get '/' => 'sessions#index', as: 'log_in_form'
   end
-  get 'admin' => 'admin/sessions#index'
   get "payment_notification" => "payment_notification#create"
 
   # match "/(:action)" => "home"

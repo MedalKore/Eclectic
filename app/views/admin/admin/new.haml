@@ -1,0 +1,12 @@
+= form_for @admin_user, url: admin_create_user_path, html: {id: :new_admin_user} do |p|
+	%table
+		%tr
+			%td= p.label :email, "Email:"
+			%td= p.text_field :email
+		%tr	
+			%td= p.label :password, 'Password:'
+			%td= p.password_field :password
+		%tr	
+			%td= p.label :password_confirmation, 'Confirm Password:'
+			%td= p.password_field :password_confirmation
+	= p.submit

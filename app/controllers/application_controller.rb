@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-	before_filter :newest_items, :except => {:controller => 'admin/admin'}
-	before_filter :current_cart, :except => {:controller => 'admin/admin'}
-	before_filter :last_item, :except => {:controller => 'admin/admin'}
-	before_filter :admin?, only: {controller: 'admin/*'}
+	before_filter :newest_items
+	before_filter :current_cart
+	before_filter :last_item
+	
 
 	def newest_items
 		@new_products ||= Product.order('created_at DESC').limit(3)

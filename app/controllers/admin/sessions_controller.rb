@@ -4,7 +4,7 @@ class Admin::SessionsController < ApplicationController
   def index
     @title = admin? ? 'Welcome' : 'Sign In'
     if admin?
-      render 'index'
+      redirect_to :admin_products
     else
       render 'admin/layouts/log_in'
     end
@@ -38,6 +38,6 @@ class Admin::SessionsController < ApplicationController
     else
       cookies.delete(:auth_token)
     end
-    redirect_to :admin
+    redirect_to :admin_log_in_form
   end
 end

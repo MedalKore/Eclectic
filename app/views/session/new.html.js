@@ -1,1 +1,1 @@
-$('#flash').text('<%= raw(flash[:error]) || raw(flash[:notice])%>')
+$('#flash').text('<%= raw(flash.now[:error]) || raw(flash.now[:notice])%>')

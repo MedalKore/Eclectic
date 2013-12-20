@@ -1,20 +1,42 @@
-%h2 Log In
-%table#log_in_form
-	= form_tag log_in_path do
-		%tr
-			%td
-				= label_tag 'log_in[email]', 'Email'
-			%td
-				= email_field 'log_in', 'email'
-		%br
-		%tr
-			%td
-				= label_tag 'log_in[password]', 'Password'
-			%td
-				= password_field 'log_in', 'password'
-		%tr
-			%td	
-				= submit_tag 'Log In'
+#forms	
+	%h2 Log In
+	%table#log_in_form
+		= form_tag log_in_path do
+			%tr
+				%td
+					= label_tag 'log_in[email]', 'Email:'
+				%td
+					= email_field 'log_in', 'email'
+			%br
+			%tr
+				%td
+					= label_tag 'log_in[password]', 'Password:'
+				%td
+					= password_field 'log_in', 'password'
+			%tr
+				%td	
+					= submit_tag 'Log In'
 
-= ab_test "Sign Up Button", ["Sign Up", "Register"], conversion: "signed_up" do |verbage|
-	= link_to verbage, create_account_path, id: "log_in_sign_up"
+	= ab_test "Sign Up Button", ["Sign Up", "Register"], conversion: "signed_up" do |verbage|
+		#log_in_sign_up= verbage
+
+	%section#createaccount
+		= form_tag create_path do
+			%table
+				%tr
+					%td= label_tag 'email', 'Email:', :class => 'email'
+					%td= text_field_tag :email, nil, :class => 'email'
+				%tr
+					%td= label_tag 'firstname', 'First Name:', :class => 'firstname'
+					%td= text_field_tag :firstname, nil, :class => 'firstname'
+				%tr
+					%td= label_tag 'lastname', 'Last Name:', :class => 'lastname'
+					%td= text_field_tag :lastname, nil, :class => 'lastname'
+				%tr
+					%td= label_tag 'password', 'Password:', :class => 'password'
+					%td= password_field_tag :password, nil, :class => 'password'
+				%tr
+					%td= label_tag 'password_confirmation', 'Confirm Password:', :class => 'password'
+					%td= password_field_tag :password_confirmation, nil, :class => 'password'
+			= submit_tag 'Create Account', :id => 'accountsubmit'
+		

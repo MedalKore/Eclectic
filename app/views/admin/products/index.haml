@@ -11,8 +11,8 @@
       %td.subcategory Subcategory
       %td.image Product Image
     - for p in @products do
-      %tr#admin_product
-        %td.name= p.name
+      %tr
+        %td.product_name= p.name
         %td.quantity= p.quantity
         %td.category= p.category.capitalize
         %td.price= "$#{sprintf("%0.2f", p.price)}"

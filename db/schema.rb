@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20130918032054) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "admins", force: true do |t|
     t.string   "email"
     t.string   "password_digest"
@@ -56,13 +59,6 @@ ActiveRecord::Schema.define(version: 20130918032054) do
   end
 
   add_index "experiments", ["test_name"], name: "index_experiments_on_test_name", using: :btree
-
-  create_table "favorites", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "product_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "orders", force: true do |t|
     t.integer  "user_id"

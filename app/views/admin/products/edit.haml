@@ -1,9 +1,10 @@
-%section
+%section#edit_product_form
 	=form_for @product, url: admin_update_product_path(product_id: @product.id), html: {multipart: true} do |p|
 		= p.label :name, "Name:"
 		= p.text_field :name
 		%br
 		= p.label :description, 'Brief Description:'
+		%br
 		= p.text_area :description
 		%br
 		= p.label :price, "Price:"

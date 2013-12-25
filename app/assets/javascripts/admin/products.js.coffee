@@ -55,3 +55,9 @@ $(document).ready ->
 
 getchaSomeValue = (element) ->
 	element.val()
+
+$(document).ready(->
+	$('.delete').on("click", ->
+		confirm('Are you sure you want to delete this product?')
+		)
+	)

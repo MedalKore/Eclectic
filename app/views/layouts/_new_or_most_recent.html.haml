@@ -1,8 +1,9 @@
-#new_products
-	%ul
-		%h2 New Products
-		- for item in @new_products do
-			%li
-				= link_to image_tag(item.product_image.url(:thumbnail), class: "image_thumb"), product_path(:id => item.id)
-				%p= "$#{item.price} -------"
+- unless current_page?(about_path)
+	#new_products
+		%ul
+			%h2 New Products
+			- for item in @new_products do
+				%li
+					= link_to image_tag(item.product_image.url(:thumbnail), class: "image_thumb"), product_path(:id => item.id)
+					%p= "$#{item.price} -------"
 			

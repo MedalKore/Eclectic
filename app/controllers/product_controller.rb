@@ -35,7 +35,8 @@ class ProductController < ApplicationController
 			if @category == "accessory"
 				@products = accessories
 			elsif @category == 'necklace' || 'bracelet' || 'anklet'
-				call_for_category
+				fetch_products_by_category
+				@title = @category.capitalize
 			else
 				render file: "#{Rails.root}/public/404", layout: false, status: :not_found
 			end
@@ -46,13 +47,13 @@ class ProductController < ApplicationController
 
 	def friendship
 		@title = 'Friendship'
-		@products = Product.find_by(category: :friendship)
+		@products = Product.where(category: :friendship)
 		render 'category'
 	end
 
 	def survivor
 		@title = 'Survivor Bracelets'
-		@products = Product.find_by(category: 'survivor bracelet')
+		@products = Product.where(category: 'survivor bracelet')
 		render 'category'
 	end
 
@@ -79,9 +80,9 @@ class ProductController < ApplicationController
 	def accessories
 		@title = 'Accessories'
 		if params[:sub_gender].nil?
-			@products = Product.where(category: @category)
+			@products = Product.where(category: @category.pluralize)
 		else
-			@sub_gender = params[:sub_gender].singularize
+			@sub_gender = params[:sub_gender]
 			@sub_gender = legit_subcategory
 			Product.where(subcategory: @sub_gender)
 		end
@@ -105,7 +106,7 @@ class ProductController < ApplicationController
 		end
 	end
 
-	def call_for_category
+	def fetch_products_by_category
 		@sub_gender = params[:sub_gender] unless params[:sub_gender].nil?
 		@sub_gender = legit_gender
 		if @sub_gender

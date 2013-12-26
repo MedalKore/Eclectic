@@ -20,10 +20,10 @@
 	= p.number_field :quantity
 	%br
 	= p.label :gender, "Gender:"
-	= p.collection_select :gender, Product.gender_options, :to_sym, :capitalize
+	= p.collection_select :gender, Product.gender_options, :to_sym, :capitalize, prompt: true
 	%br
 	= p.label :subcategory, "Sub-Category:"
-	= p.collection_select :subcategory, Product.subcategory_options, :to_sym, :capitalize
+	= p.collection_select :subcategory, Product.subcategory_options, :to_sym, :capitalize, prompt: true
 	%p#add_subcategory= 'Add Sub-Category'
 	%br
 	= text_field :add_a, :subcategory, placeholder: 'Add a Sub-Category'

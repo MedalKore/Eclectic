@@ -12,8 +12,8 @@ module ApplicationHelper
 		@current_user ? true : false
 	end
 
-	def remove_from_cart_link(product_id)
-		link_to '(remove)', remove_path(:id => product_id), :remote => true, :class => "remove_#{product_id}", :method => 'post'
+	def remove_from_cart_link(product_id, options = {})
+		link_to '(remove)', remove_path(:id => product_id), options
 	end
 
 

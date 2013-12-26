@@ -4,9 +4,10 @@
 			= image_tag(@product.product_image.url(:original))
 		#productinfo
 			%p= @product.name
-			%p= @product.price
-			%p= @product.category
+			%p= "$#{@product.price}"
+			%p= @product.category.capitalize
 			- unless @product.subcategory.nil?
-				%p= @product.subcategory
-			%p= link_to image_tag("site/bag.png", title: "Add to Cart"), add_path(:id => @product.id), :remote => true, :id => "add_#{@product.id}"
+				%p= @product.subcategory.capitalize
+			%p= "Quantity: #{@product.quantity}"
+			%p= link_to image_tag("site/bag.png", title: "Add to Cart")+ "Add to Cart", add_path(:id => @product.id), :remote => true, :id => "add_product_to_cart"
 

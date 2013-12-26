@@ -248,7 +248,8 @@ body
 		padding: 0
 
 #cart_total
-
+	margin-top: 1%
+	margin-left: 20%
 
 input[type='submit']#pay_button
 	background-repeat: no-repeat
@@ -262,7 +263,7 @@ input[type='submit']#pay_button
 		background-repeat: no-repeat
 		background-image: url(<%= asset_path 'site/checkout-2.png' %>)
 		background-size: 100%
-		width: 170px
+		width: 150px
 		height: 30px
 
 #items
@@ -491,6 +492,15 @@ section.slider
 			input[type=password]
 				background: $green
 
+#add_product_to_cart
+	font-family: Arial
+	text-decoration: none
+	color: black
+
+	img
+		margin-right: 10px
+		margin-top: 5px
+
 #new_products
 	margin: 50px 0 0 0
 	background: white
@@ -505,10 +515,12 @@ section.slider
 			background-color: lightgrey
 			width: 195px
 			margin: 0px 35px 15px
+			p
+				margin-left: 30px
 			img
 				max-width: 150px
 				margin-top: 10%
-				margin-left: 12%
+				margin-left: 16%
 			span
 				font-family: Novecentowide-Normal
 				font-size: 10pt
@@ -517,7 +529,6 @@ section.slider
 			padding: 20px
 
 #product
-
 
 #all_product
 	margin: 60px 0 0 0
@@ -561,27 +572,54 @@ section.slider
 	margin-top: 70px
 	margin-left: 15%
 
+
 #productinfo
 	float: right
-	margin-top: -300px
+	margin-top: -400px
+	font-family: Arial
 
 .update_user
 	margin: 0 20%
 
 #checkout
 	width: 470px
+	float: right
+	form
+		float: right
+
+#save_order
+	float: right
+	margin: 1% 0 0 0
 
 .back_to_shopping
-	margin-top: -40px
 	float: right
+	margin-top: 6%
+	margin-right: 2%
 
-li.header
-	width: 100px
-	padding: 0
+td.header
+	width: 1px
+	text-align: center
 	margin-left: 60px
 
 .cart_item,
 .image
+	img
+		height: 50%
+
+.remove_from_cart
+	text-decoration: none
+	font-size: 10pt
+	padding: 5% 0 0 0
+	margin: -50% 0 0 1%
+
+.cart_item
+	width: 1%
+	text-align: center
+
+#cart_items
+	width: 95%
+	height: 100%
+	margin-bottom: 10%
 
 .orders_list
 	list-style: none

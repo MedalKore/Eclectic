@@ -4,6 +4,6 @@
 			%h2 New Products
 			- for item in @new_products do
 				%li
-					= link_to image_tag(item.product_image.url(:thumbnail), class: "image_thumb"), product_path(:id => item.id)
-					%p= "$#{item.price} -------"
+					= link_to image_tag(item.product_image.url(:thumbnail), class: "image_thumb"), product_path(:id => item.id), title: "#{item.category.capitalize}"
+					%p= "$#{item.price} - #{item.name}"
 			

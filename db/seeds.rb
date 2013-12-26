@@ -25,7 +25,7 @@ end
 end
 
 4.times do |n|
-	Product.create(name: "Product #{n}", category: "survivor sracelet", price: "15.00", description: "Description about Survivor Bracelet goes here.", quantity: "1")
+	Product.create(name: "Product #{n}", category: "survivor bracelet", price: "15.00", description: "Description about Survivor Bracelet goes here.", quantity: "1")
 
 end
 
